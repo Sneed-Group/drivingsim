@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open World Driving Simulator - Multiplayer</title>
+  <script type="module" crossorigin src="/assets/index-s0wJRamv.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BsurfyCJ.css">
+</head>
+<body>
+  <div id="loading-screen">
+    <div class="loading-container">
+      <h1>Loading World Data</h1>
+      <div class="progress-bar">
+        <div id="progress-bar-fill"></div>
+      </div>
+      <p id="loading-status">Initializing...</p>
+    </div>
+  </div>
+
+  <div id="game-ui" class="hidden">
+    <div id="speedometer">
+      <div id="speed-value">0</div>
+      <div id="speed-unit">km/h</div>
+    </div>
+    <div id="minimap"></div>
+    <div id="controls-info">
+      <p>W/S - Accelerate/Brake</p>
+      <p>A/D - Steer Left/Right</p>
+      <p>R - Reset Vehicle</p>
+      <p>M - Toggle Map</p>
+    </div>
+    <div id="player-list">
+      <h3>Players</h3>
+      <ul id="connected-players"></ul>
+    </div>
+  </div>
+
+  <div id="location-select" class="overlay">
+    <div class="overlay-content">
+      <h2>Select Starting Location</h2>
+      <select id="location-dropdown">
+        <option value="newyork">New York City</option>
+        <option value="sanfrancisco">San Francisco</option>
+        <option value="london">London</option>
+        <option value="tokyo">Tokyo</option>
+        <option value="custom">Custom Coordinates</option>
+      </select>
+      <div id="custom-location" class="hidden">
+        <label for="latitude">Latitude:</label>
+        <input type="number" id="latitude" step="0.0001" placeholder="40.7128">
+        <label for="longitude">Longitude:</label>
+        <input type="number" id="longitude" step="0.0001" placeholder="-74.0060">
+      </div>
+      <hr>
+      <div id="multiplayer-options">
+        <h3>Multiplayer Options</h3>
+        <div class="input-group">
+          <label for="player-name">Your Name:</label>
+          <input type="text" id="player-name" placeholder="Enter your name">
+        </div>
+        <div class="option-buttons">
+          <button id="host-game-button">Host New Game</button>
+          <button id="join-game-button">Join Game</button>
+        </div>
+        <div id="join-game-form" class="hidden">
+          <label for="game-id">Game ID:</label>
+          <input type="text" id="game-id" placeholder="Enter Game ID">
+          <button id="connect-button">Connect</button>
+        </div>
+        <div id="host-info" class="hidden">
+          <p>Your Game ID: <span id="your-game-id">Generating...</span></p>
+          <p>Share this ID with friends to let them join your game.</p>
+        </div>
+      </div>
+      <div id="start-game-container">
+        <button id="start-button" disabled>Start Driving</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="connection-status" class="hidden">
+    <p id="connection-message">Connecting...</p>
+  </div>
+
+  <canvas id="game-canvas"></canvas>
+
+</body>
+</html> 
